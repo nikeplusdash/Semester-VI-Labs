@@ -13,7 +13,6 @@ import android.os.StrictMode;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.view.Window;
 import com.squareup.picasso.Picasso;
 import com.zespr.additionalq.http.HTTPClient;
 import com.zespr.additionalq.http.Result;
@@ -85,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        new HTTPClient(epoch).loadWeather(new WeatherCallback() {
+        new HTTPClient(epoch,latitude,longitude,getResources().getString(R.string.weatherAPI)).loadWeather(new WeatherCallback() {
             @Override
             public void onSuccess(Result[] weather) {
                 runOnUiThread(() -> showData(weather));
