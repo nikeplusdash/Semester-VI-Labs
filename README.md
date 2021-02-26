@@ -2,4 +2,4 @@
 
 (DWDM Lab)[https://github.com/nikeplusdash/Semester-VI-Labs/tree/DWDM]
 
-(ITT Lab)[ITT]
+(ITT Lab)[https://github.com/nikeplusdash/Semester-VI-Labs/tree/ITT]
