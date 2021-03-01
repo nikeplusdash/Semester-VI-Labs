@@ -102,7 +102,7 @@
     #ta {
         width: 80%;
     }
-    input[type=submit] {
+    input[type=submit], input[type=reset] {
         width: 80%;
         padding: 16px 0px;
         border: none;
@@ -125,8 +125,7 @@
                 <div class="li"><input type="checkbox" name="student"><label for="student">Student</label></div>
                 <div class="li"><input type="checkbox" name="location"><label for="location">Location</label></div>
                 <div class="li"><input type="checkbox" name="campus"><label for="campus">Campus</label></div>
-                <div class="li"><input type="checkbox" name="atmosphere"><label for="atmosphere">Atmosphere</label>
-                </div>
+                <div class="li"><input type="checkbox" name="atmosphere"><label for="atmosphere">Atmosphere</label></div>
                 <div class="li"><input type="checkbox" name="dorm"><label for="dorm">Dorm Rooms</label></div>
                 <div class="li"><input type="checkbox" name="sports"><label for="sports">Sports</label> </div>
             </div>
@@ -143,6 +142,7 @@
         <div class="extra">
             <textarea id="ta" name="Address" id=""></textarea> 
             <input type="submit" value="Submit" id="submit">
+            <input type="reset" value="Reset" id="reset">
         </div>
     </form>
 </body>
