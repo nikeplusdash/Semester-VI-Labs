@@ -94,8 +94,7 @@ public class RegisterActivity extends AppCompatActivity{
     }
     private void startMainActivity() {
         Intent intent = new Intent(this, MainActivity.class);
-//        intent.putExtra("EMAIL",emailLayout.getEditText().getText().toString());
-//        intent.putExtra("MOBILE",mobileLayout.getEditText().getText().toString());
+
         startActivity(intent);
     }
 }
