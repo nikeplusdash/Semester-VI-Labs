@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Q1</title>
+  </head>
+  <body>
+    <h1 style="font-size: 5px">TEXT-GROWING</h1>
+    <script>
+      let dec = false;
+      setInterval(() => {
+        let text = document.getElementsByTagName("h1")[0];
+        let font = window
+          .getComputedStyle(text, null)
+          .getPropertyValue("font-size");
+        let current = parseFloat(font);
+        if (current <= 5) {
+          dec = false;
+          text.innerText = "TEXT-GROWING";
+        }
+        if (current >= 50) {
+          dec = true;
+          text.innerText = "TEXT-SHRINKING";
+        }
+        fun(dec);
+      }, 100);
+
+      var fun = (dec) => {
+        let text = document.getElementsByTagName("h1")[0];
+        let font = window
+          .getComputedStyle(text, null)
+          .getPropertyValue("font-size");
+        let current = parseFloat(font);
+        if (dec) {
+          text.style.fontSize = current - 5 + "px";
+        } else {
+          text.style.fontSize = current + 5 + "px";
+        }
+      };
+    </script>
+  </body>
+</html>

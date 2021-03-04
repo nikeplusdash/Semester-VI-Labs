@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Part1</title>
+</head>
+<body>
+    <script>
+        let x = window.prompt("Enter n:")
+        let n = parseInt(x)
+        let a = 0,b = 1,c = 0;
+        let text = []
+        for(let i=0;i<n;i++) {
+            text.push(a)
+            c = b
+            b = b + a
+            a = b
+        }
+        document.getElementsByTagName('body')[0].innerText = text.join('\n')
+    </script>
+</body>
+</html>

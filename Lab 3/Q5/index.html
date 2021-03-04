@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q5</title>
+</head>
+<body>
+    <table id="x" style="text-align: center;">
+        <tr>
+            <th>i</th>
+            <th>i<sup>2</sup></th>
+            <th>i<sup>3</sup></th>
+        </tr>
+    </table>
+    <script>
+        let table = document.getElementById("x")
+        for(let i=0;i<=10;i++) {
+            table.innerHTML += `<tr><td>${i}</td><td>${i*i}</td><td>${i*i*i}</td></tr>`
+        }
+    </script>
+</body>
+</html>
