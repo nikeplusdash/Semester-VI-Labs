@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q3</title>
+</head>
+<body>
+    <input type="text" name="" id="x" autofocus autocomplete="tel"/>
+    <input type="text" name="" id="area" disabled />
+    <input type="text" name="" id="phone" disabled />
+    <script>
+        document.getElementById("x").addEventListener("keydown",(e) => {
+            if(e.keyCode === 13) {
+                let s = e.target.value
+                let l = s.indexOf('('), r = s.indexOf(')')
+                try {
+                    if(l == r || l == -1 || r == -1 || s.search(/[a-zA-Z]/)!= -1) throw console.error("Invalid Number");
+                    document.getElementById("area").value = s.slice(l+1,r)
+                    document.getElementById("phone").value = parseInt(s.slice(r+1))
+                } 
+                catch(err) {
+                    document.getElementById("area").value = ""
+                    document.getElementById("phone").value = ""
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -15,24 +15,21 @@
     </style>
 </head>
 <body>
-    <input type="text" name="" id="x">
+    <input type="text" autofocus name="" id="x">
     <textarea disabled cols="1" id="y"></textarea>
     <script>
         let input = document.getElementById('x')
         let output = document.getElementById('y')
         input.addEventListener('input',(e)=>{
-            let s = e.target.value
-            let val = s.split(' ')
+            let s = e.target.value.trim()
+            let val = s.split(' ').filter(i => i!="")
             output.innerHTML = ""
             output.style.height = 15 * val.length + 'px'
             val.forEach(i => printLatinWord(i))
         })
         function printLatinWord(i) {
             if(i == "") return
-            let c = i.slice(0,1)
-            let x = i.slice(1)
-            console.log(c,x);
-            output.innerHTML += (x + c + 'ay\n');
+            output.innerHTML += ( i.slice(1) + i.charAt(0) + 'ay\n');
         }
     </script>
 </body>
