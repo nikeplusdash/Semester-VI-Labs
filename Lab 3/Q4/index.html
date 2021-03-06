@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,57 +8,56 @@
     <title>Q4</title>
     <style>
         body {
+            font-family: Arial, Helvetica, sans-serif;
             display: flex;
             flex-direction: column;
             width: 50vw;
             margin: auto;
         }
+        textarea {
+            margin: 0%;
+            padding: 0%;
+            min-height: 18px;
+            font-size: 16px;
+        }
     </style>
 </head>
+
 <body>
     <input type="text" autofocus name="" id="x">
     <textarea disabled cols="1" id="y"></textarea>
     <script>
-        function factorial(i) {
-            let k = 1
-            for(let j=1;j<=i;j++) k *= j
-            return k
-        }
-        function sortString(str){
-            var arr = str.split('');
-            var tmp;
-            for(var i = 0; i < arr.length; i++){
-                for(var j = i + 1; j < arr.length; j++){
-                    if(arr[i] > arr[j]){
-                        tmp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = tmp;
-                    }
-                }
-            }
-            return arr.join('');
-        }
-        function genPermutations(s1,s2,k,s) {
-            // console.log(s1,s2,k,s)
-            if(k == 3) {s.push(s2);return}
-            for(let i = 0;i < s1.length;i++) {
-                if(s1.charAt(i) == s1.charAt(k-1)) continue
-                genPermutations(s1,s2+s1.charAt(i),k+1,s)
-            }
-        }
         let input = document.getElementById('x')
         let output = document.getElementById('y')
-        input.addEventListener('keydown',(e) => {
-            if(e.keyCode === 13) {
-                let s = e.target.value.trim()
-                let count = factorial(s.length)/6/factorial(s.length-3)
+        input.addEventListener('keydown', (e) => {
+            if (e.keyCode === 13) {
+                let string = e.target.value.trim()
+                let count = string.length * (string.length - 1) * (string.length - 2)
                 let perm = []
+                let temp
+                for (let i = 0; i < string.length; i++) {
+                    temp = string[i];
+                    for (let j = 0; j < string.length; j++) {
+                        if (j != i) {
+                            temp += string[j]
+                            for (let k = 0; k < string.length; k++) {
+                                if (k != i && k != j) {
+                                    temp += string[k];
+                                    if (!perm.includes(temp)) perm.push(temp)
+                                }
+                                temp = temp.substring(0, 2)
+                            }
+                        }
+                        temp = temp.substring(0, 1)
+                    }
+                }
+                console.log(count);
                 output.innerHTML = ""
-                output.style.height = 15 * count + 'px'
-                genPermutations(s,"",0,perm)
+                output.style.height = 18 * count / (parseFloat(window.getComputedStyle(output,null).getPropertyValue("width"))/(16*0.75*5)) + 'px'
                 output.innerHTML = perm.join(', ')
             }
         })
     </script>
 </body>
+
 </html>
