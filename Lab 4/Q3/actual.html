@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q2</title>
+    <style>
+        .para {
+            color: white;
+            background: black;
+            padding: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: absolute;
+            left: 0%;
+            top: 0%;
+            margin: auto;
+            width: 50vw;
+            height: 20%;
+        }
+        #contain {
+            display: flex;
+            position: relative;
+            top: 0%;
+            height: 90vh;
+        }
+    </style>
+</head>
+<body>
+    <div id="contain">
+        <div class="para" id="1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices, orci vitae eleifend elementum, tellus elit scelerisque erat, eget pharetra risus arcu ac purus. In posuere, sapien id vulputate posuere, tortor justo blandit nulla, id egestas ipsum magna at ante. Cras id est ac leo suscipit pellentesque. Pellentesque condimentum molestie efficitur. Aenean ac tortor elit. Suspendisse vitae purus non erat auctor feugiat vel pretium leo. Phasellus fringilla nulla in est ultricies, et faucibus sapien maximus. Donec quis eleifend ligula. Etiam efficitur iaculis augue, sit amet porta sem aliquam sit amet.</div>
+        <div class="para" id="2">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque justo arcu, dictum eu metus congue, sollicitudin efficitur mi. Ut non malesuada quam. Donec molestie ex id elit semper suscipit. Donec scelerisque nunc id ipsum commodo dictum eu vitae magna. In congue gravida suscipit. Curabitur posuere augue eu convallis sagittis. Quisque magna dui, fermentum</div>
+        <div class="para" id="3">Proin malesuada sem in magna sagittis vulputate. Pellentesque consequat mi ac volutpat rhoncus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In sollicitudin volutpat scelerisque. Proin felis ligula, maximus at consequat nec, feugiat congue dui. Curabitur tincidunt ex ac diam mattis suscipit. In id mauris non libero iaculis laoreet. Vestibulum id est id massa placerat suscipit. Integer imperdiet arcu eget risus varius sollicitudin. Suspendisse.s</div>
+    </div>
+    <script>
+        let sty = ["red","green","blue"]
+        let order = [[0,1,2],[1,0,2],[2,0,1]]
+        let doc = [document.getElementById("1"),document.getElementById("2"),document.getElementById("3")]
+        let parent = document.getElementById("contain")
+        for(let i=0;i<3;i++) {
+            doc[i].style.zIndex = 2 - i 
+            doc[i].style.left = 4*i + "%"
+            doc[i].style.top = 4*i + "%"
+            doc[i].style.background = sty[i]
+            doc[i].addEventListener('mouseover',(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                let x = parseInt(e.target.id) - 1
+                e.target.style.zIndex = 4
+                for(let i=0;i<3;i++) {
+                    doc[order[x][i]].style.zIndex = 2 - i 
+                    doc[order[x][i]].style.left = 4*i + "%"
+                    doc[order[x][i]].style.top = 4*i + "%"
+                }
+            })
+            doc[i].addEventListener('mouseout',(e) => {
+                for(let i=0;i<3;i++) {
+                    doc[i].style.zIndex = 2 - i 
+                    doc[i].style.left = 4*i + "%"
+                    doc[i].style.top = 4*i + "%"
+                }
+            })
+        }
+    </script>
+</body>
+</html>

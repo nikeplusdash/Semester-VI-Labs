@@ -18,10 +18,10 @@
         let n = parseInt(x)
         let table = document.getElementById("x")
         let i = 0
-        for(i=1;i<=10;i++) {
+        for(i=1;i<=n;i++) {
             table.innerHTML += `<tr><td>${i}</td><td>${i*i}</td></tr>`
         }
-        window.alert(i*i)
+        window.alert((i-1)*(i-1))
     </script>
 </body>
 </html>
