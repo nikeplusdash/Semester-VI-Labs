@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 String s = et2.getText().toString(),s2 = et.getText().toString(),s3 = "";
                 try {
                     if(s.isEmpty()||s2.isEmpty()) throw new NumberFormatException("Error");
-                    x = Integer.parseInt(s);
+                    x = Integer.parseInt(s)%26;
                 }
                 catch(NumberFormatException e) {
                     return false;
