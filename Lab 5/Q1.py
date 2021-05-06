@@ -121,8 +121,8 @@ def encrypt(string, shift):
 
 # Part 1.j
 
-print(bcolors.OKCYAN,end='')
-a = str(input('Enter string: '))
-n = int(input('Enter shift: '))
-print(bcolors.ENDC,end='')
-print('{} ------> {}'.format(a,encrypt(a, n)))
+# print(bcolors.OKCYAN,end='')
+# a = str(input('Enter string: '))
+# n = int(input('Enter shift: '))
+# print(bcolors.ENDC,end='')
+# print('{} ------> {}'.format(a,encrypt(a, n)))
