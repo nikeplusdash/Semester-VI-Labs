@@ -27,3 +27,7 @@ All labs of Semester VI
 - [Q1 - Part 2](https://nikeplusdash.github.io/Semester-VI-Labs/Lab%204/Q1/part2.html)
 - [Q3](https://nikeplusdash.github.io/Semester-VI-Labs/Lab%204/Q3/index.html)
 - [Q4](https://nikeplusdash.github.io/Semester-VI-Labs/Lab%204/Q4/index.html)
+
+### Lab 5:
+
+- [Q1](https://github.com/nikeplusdash/Semester-VI-Labs/blob/ITT/Lab%205/Q1.ipynb)
