@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        font-family: 'Acumin Pro';
+    }
+
+    form {
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #usn {
+        margin: 20px;
+        height: 24px;
+        padding: 4px 8px;
+        border: 2px solid #000000;
+        border-radius: 3px;
+        outline: none;
+        transition: all 300ms ease;
+    }
+
+    #usn:focus,
+    #usn:active {
+        margin: 19px;
+        border: 3px solid #FFBE2B;
+    }
+
+    .h1 {
+        font-size: 120px;
+        font-family: 'Bebas Neue';
+        font-weight: bold;
+    }
+
+    .format {
+        display: flex;
+    }
+
+    .exp {
+        margin: 20px;
+    }
+
+    .eg {
+        font-size: 30px;
+        font-family: 'Bebas Neue';
+        font-weight: bold;
+        color: #F55B5B;
+        padding: 4px 10px;
+        border-radius: 4px;
+        transition: all 400ms;
+        cursor: pointer;
+    }
+
+    .eg:hover {
+        background: #ff9f9f;
+        color: rgb(255, 255, 255);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <form id="a" action="javascript:void(0)" onsubmit="handleSubmit(event)">
+            <div class="h1">USN</div>
+            <div class="exp eg" onclick="copy()">4MI19IT200</div>
+            <div class="format">
+                <div class="exp">College Id: <b class="val">4MI</b></div>
+                <div class="exp">Admission Year: <b class="val">2019</b></div>
+                <div class="exp">Branch: <b class="val">IT</b></div>
+                <div class="exp">Roll No: <b class="val">200</b></div>
+                <div class="exp">Semester: <b class="val">4<sup>th</sup></b></div>
+            </div>
+            <input type="text" name="" id="usn" autofocus placeholder="USN: ">
+        </form>
+    </div>
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault()
+            let value = e.target[0].value.trim()
+            let re = /^[1-4]{1}[A-Z]{2}\d{2}[A-Z]{2}\d{3}$/
+            let test = re.test(value)
+            let not = ['st','nd','rd','th']
+            if (!test) window.alert("Enter a valid USN")
+            if (test) {
+                let date = new Date(),month = date.getMonth(),year = date.getFullYear()
+                let match = value.match(/^([1-4]{1}[A-Z]{2})(\d{2})([A-Z]{2})(\d{3})$/).splice(1,)
+                let col = document.getElementsByClassName("val")
+                let joinDate = match[1] <= 21 ? parseInt('20' + match[1]) : parseInt('19' + match[1])
+                let sem = (year - joinDate)*2 + (parseInt(month) > 6 ? 1 : 0)
+                match[1] = joinDate
+                if(sem == 0) {window.alert("Enter a valid USN");return null}
+                if(sem > 10) match.push('Passed out')
+                if(sem > 3) {
+                    match.push(sem+`<sup>${not[3]}</sup>`)
+                }
+                if(sem <= 3) {
+                    match.push(sem+`<sup>${not[sem - 1]}</sup>`)
+                }
+                for (let i = 0; i < 5; i++) {
+                    col[i].innerHTML = match[i]
+                }
+                document.getElementsByClassName("eg")[0].innerHTML = value
+            }
+        }
+        function copy() {
+            document.getElementById('usn').value = document.getElementsByClassName("eg")[0].innerHTML
+        }
+    </script>
+</body>
+
+</html>
