@@ -7,7 +7,7 @@
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
         motion:duration="1000"
-        motion:motionInterpolator="cubic(0,1,0,1)">
+        motion:motionInterpolator="cubic(0.24,1,0,1)">
         <KeyFrameSet>
             <KeyAttribute
                 android:alpha="1"
@@ -46,10 +46,7 @@
                 motion:framePosition="80"
                 motion:motionTarget="@+id/song_artist" />
         </KeyFrameSet>
-        <OnSwipe
-            motion:dragDirection="dragUp"
-            motion:touchAnchorId="@id/media_layout"
-            motion:touchAnchorSide="top" />
+        <OnClick motion:targetId="@+id/song_image" />
     </Transition>
     <ConstraintSet android:id="@+id/start">
         <Constraint
