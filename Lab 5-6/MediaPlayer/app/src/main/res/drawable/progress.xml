@@ -11,12 +11,11 @@
             <shape>
                 <corners android:radius="5dip" />
                 <gradient
-                    android:startColor="#80ffd300"
+                    android:angle="270"
                     android:centerColor="#80ffb600"
                     android:centerY="0.75"
                     android:endColor="#a0ffcb00"
-                    android:angle="270"
-                    />
+                    android:startColor="#80ffd300" />
             </shape>
         </clip>
     </item>
@@ -25,13 +24,11 @@
             android:clipOrientation="horizontal"
             android:gravity="left">
             <shape>
-                <corners
-                    android:radius="5dip" />
+                <corners android:radius="5dip" />
                 <gradient
-                    android:startColor="@color/teal_200"
-                    android:endColor="@color/teal_700"
                     android:angle="270"
-                    />
+                    android:endColor="@color/teal_700"
+                    android:startColor="@color/teal_200" />
             </shape>
         </clip>
     </item>

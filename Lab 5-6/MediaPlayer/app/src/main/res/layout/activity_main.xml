@@ -11,11 +11,11 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:text="Your Playlist"
         android:fontFamily="sans-serif-medium"
-        android:textSize="40sp"
         android:gravity="left|center"
         android:paddingStart="20dp"
+        android:text="Your Playlist"
+        android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -42,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -64,9 +64,16 @@
         android:id="@+id/song_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sample Song Name"
+        android:ellipsize="marquee"
+        android:layout_marginStart="10dp"
+        android:marqueeRepeatLimit ="marquee_forever"
+        android:singleLine="true"
+        android:text="Shingeki No Kyojin - Vogel im Käfig"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/media_layout"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@+id/song_artist"
         app:layout_constraintEnd_toEndOf="@+id/media_layout"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/media_layout"
@@ -77,6 +84,7 @@
         android:id="@+id/song_artist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingStart="20dp"
         android:text="Artist Name"
         app:layout_constraintBottom_toBottomOf="@+id/media_layout"
         app:layout_constraintEnd_toEndOf="@+id/media_layout"
@@ -89,10 +97,10 @@
         android:id="@+id/song_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:progressTint="#E8E8E8"
-        android:thumbTint="#E8E8E8"
         android:paddingStart="0dp"
         android:paddingEnd="0dp"
+        android:progressTint="#E8E8E8"
+        android:thumbTint="#E8E8E8"
         app:layout_constraintBottom_toBottomOf="@+id/media_layout"
         app:layout_constraintEnd_toEndOf="@+id/media_layout"
         app:layout_constraintHorizontal_bias="0.5"
@@ -159,6 +167,23 @@
         app:layout_constraintTop_toTopOf="@+id/forward"
         app:srcCompat="@android:drawable/ic_menu_revert" />
 
+    <SeekBar
+        android:id="@+id/volumeBar"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:alpha="0"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/progress"
+        android:max="100"
+        android:progress="100"
+        android:scaleX="0"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/play_pause"
+        app:layout_constraintStart_toStartOf="@id/play_pause"
+        app:layout_constraintTop_toBottomOf="@id/play_pause"
+        tools:layout_editor_absoluteY="760dp" />
+
     <ImageView
         android:id="@+id/volume"
         android:layout_width="50dp"
@@ -169,22 +194,5 @@
 
         app:layout_constraintTop_toTopOf="@+id/rewind"
         app:srcCompat="@android:drawable/ic_lock_silent_mode" />
-
-    <SeekBar
-        android:id="@+id/volumeBar"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:animateLayoutChanges="true"
-        android:background="@drawable/progress"
-        android:max="100"
-        android:progress="100"
-        android:scaleX="0"
-        android:alpha="0"
-        android:visibility="visible"
-        app:layout_constraintStart_toStartOf="@id/play_pause"
-        app:layout_constraintEnd_toEndOf="@id/play_pause"
-        app:layout_constraintTop_toBottomOf="@id/play_pause"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteY="760dp" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>

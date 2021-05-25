@@ -18,12 +18,15 @@
 
     <TextView
         android:id="@+id/song_name_placeholder"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
+        android:paddingEnd="20dp"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="TextViewTextViewTextViewTextViewTextViewTextViewTextViewTextView"
         android:textSize="16sp"
         android:textStyle="bold"
         android:gravity="start"
+        android:ellipsize="end"
+        android:maxLines="1"
         android:layout_marginStart="15dp"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintBottom_toTopOf="@id/song_artist_placeholder"

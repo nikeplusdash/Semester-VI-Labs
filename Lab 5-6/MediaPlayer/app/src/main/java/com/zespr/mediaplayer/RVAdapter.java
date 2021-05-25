@@ -1,6 +1,5 @@
 package com.zespr.mediaplayer;
 
-import android.content.Context;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.view.LayoutInflater;
@@ -9,14 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.IOException;
-
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.VH> {
-    private String[] song_names,song_artists;
+    private String[] song_names, song_artists;
     private int[] songs_images, songs;
     private MediaPlayer mediaPlayer;
     private MainActivity ctx;
@@ -43,15 +39,14 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.VH> {
         holder.song_artist_placeholder.setText(song_artists[position]);
         holder.song_layout.setOnClickListener(v -> {
             try {
-                if(mediaPlayer.isPlaying()) {
+                if (mediaPlayer.isPlaying()) {
                     mediaPlayer.stop();
                     mediaPlayer.reset();
                     Uri mediaPath = Uri.parse("android.resource://" + ctx.getPackageName() + "/" + songs[position]);
                     mediaPlayer.setDataSource(ctx.getApplicationContext(), mediaPath);
                     mediaPlayer.prepare();
                     mediaPlayer.start();
-                }
-                else {
+                } else {
                     Uri mediaPath = Uri.parse("android.resource://" + ctx.getPackageName() + "/" + songs[position]);
                     mediaPlayer.reset();
                     mediaPlayer.setDataSource(ctx.getApplicationContext(), mediaPath);
@@ -59,7 +54,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.VH> {
                     mediaPlayer.start();
                 }
                 ctx.position = position;
-                ctx.setCurrentPlaying(song_names[position],song_artists[position],songs_images[position]);
+                ctx.setCurrentPlaying(song_names[position], song_artists[position], songs_images[position]);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -72,9 +67,10 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.VH> {
     }
 
     public class VH extends RecyclerView.ViewHolder {
-        protected TextView song_name_placeholder,song_artist_placeholder;
+        protected TextView song_name_placeholder, song_artist_placeholder;
         protected ImageView song_image_placeholder;
         protected ConstraintLayout song_layout;
+
         public VH(View itemView) {
             super(itemView);
             song_name_placeholder = itemView.findViewById(R.id.song_name_placeholder);

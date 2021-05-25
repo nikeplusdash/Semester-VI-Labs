@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     public Handler mediaHandler = new Handler();
     public int startTime = 0, endTime = 0;
 
-    String[] song_names = {"Ashes on The Fire", "YOUSEEBIGGIRL-T_T", "Vogel im Käfig", "APETITAN", "凸】♀】♂】←巨人", "Saath Nibhana Saathiya"};
+    String[] song_names = {"Attack on Titan - Final Season : Ashes on The Fire", "YOUSEEBIGGIRL-T_T", "Shingeki No Kyojin - Vogel im Käfig", "APETITAN", "凸】♀】♂】←巨人", "Saath Nibhana Saathiya"};
     String[] song_artists = {"Kohta Yamamoto", "Sawano Hiroyuki", "Sawano Hiroyuki", "Sawano Hiroyuki", "Sawano Hiroyuki", "Unknown"};
     int[] songs = {R.raw.aots4, R.raw.youseebiggirl, R.raw.vogelimkafig, R.raw.apetitan, R.raw.titansong, R.raw.sns};
     int[] song_images = {R.drawable.aot, R.drawable.aots2, R.drawable.aots1, R.drawable.aots3, R.drawable.aots1, R.drawable.unknown};
@@ -59,12 +59,14 @@ public class MainActivity extends AppCompatActivity {
 
         mediaPlayer = MediaPlayer.create(this, songs[position]);
         songName.setText(song_names[position]);
+        songName.setSelected(true);
         songArtist.setText(song_artists[position]);
         songImage.setImageResource(song_images[position]);
         endTime = mediaPlayer.getDuration();
         startTime = mediaPlayer.getCurrentPosition();
         seekBar.setMax(endTime);
         volumeBar.setMax(maxVolume);
+        volumeBar.setProgress(100);
         setTime();
         mediaPlayer.getDuration();
         RVAdapter rvAdapter = new RVAdapter(song_names, song_artists, song_images, songs, mediaPlayer, MainActivity.this);
@@ -129,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
         });
         volume.setOnClickListener(v -> {
             volumeBar.setProgress(mute ? 50 : 0);
+            float vol = (float) (1 - (Math.log(maxVolume - (mute ? 50 : 0)) / Math.log(maxVolume)));
+            mediaPlayer.setVolume(vol, vol);
             mute = !mute;
         });
         volume.setOnLongClickListener(v -> {
@@ -140,7 +144,7 @@ public class MainActivity extends AppCompatActivity {
         volumeBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if(volumeBar.getScaleX() == 0) return;
+                if (volumeBar.getScaleX() == 0) return;
                 float vol = (float) (1 - (Math.log(maxVolume - progress) / Math.log(maxVolume)));
                 mediaPlayer.setVolume(vol, vol);
             }
