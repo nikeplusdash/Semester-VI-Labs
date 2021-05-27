@@ -23,11 +23,4 @@ CREATE TABLE IF NOT EXISTS student(
 );
 """)
 conn.executemany('INSERT INTO student VALUES(?,?,?,?,?,?,?,?)',data)
-conn.execute("""
-CREATE TABLE IF NOT EXISTS admin(
-    username TEXT,
-    password TEXT
-);
-""")
-conn.execute('INSERT INTO admin VALUES(?,?)',("admin","admin"))
 conn.commit()

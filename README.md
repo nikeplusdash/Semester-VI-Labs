@@ -31,3 +31,11 @@ All labs of Semester VI
 ### Lab 5:
 
 - [Q1](https://github.com/nikeplusdash/Semester-VI-Labs/blob/ITT/Lab%205/Q1.ipynb)
+
+### Lab 6:
+
+- [Q1](https://github.com/nikeplusdash/Semester-VI-Labs/blob/ITT/Lab%206/Q1.ipynb)
+
+### Lab 7:
+
+- [Q1](https://github.com/nikeplusdash/Semester-VI-Labs/blob/ITT/Lab%207)

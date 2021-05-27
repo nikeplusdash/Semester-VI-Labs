@@ -9,7 +9,7 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
 
-def matrix(a,b,mat):
+def matrixX(a,b,mat):
     p = a
     q = b
     a = mat
@@ -60,7 +60,7 @@ print('Matrix: {}\nTranspose: {}'.format(a,b))
 a = matrix()
 b = matrix()
 c = [sum([a[i][k]*b[k][j] for k in range(len(a[0]))]) for i in range(len(a)) for j in range(len(b[0]))]
-c = matrix(len(a),len(b[0]),c)
+c = matrixX(len(a),len(b[0]),c)
 print('Matrix A: {}\nMatrix B: {}\nMatrix A×B: {}'.format(a,b,c))
 
 # Part 1.d
@@ -68,7 +68,7 @@ print('Matrix A: {}\nMatrix B: {}\nMatrix A×B: {}'.format(a,b,c))
 a = matrix()
 b = matrix()
 c = [a[i][j]+b[i][j] for i in range(len(a)) for j in range(len(a[0]))]
-c = matrix(len(a),len(a[0]),c)
+c = matrixX(len(a),len(a[0]),c)
 print('Matrix A: {}\nMatrix B: {}\nMatrix A+B: {}'.format(a,b,c))
 
 # Part 1.e
